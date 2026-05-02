@@ -5,6 +5,9 @@ import wtf.choco.rljp.structures.ReplayVersionData;
 
 import java.io.IOException;
 
+/**
+ * A struct {@link Property} that holds a {@link PropertyList}.
+ */
 public final class StructProperty extends Property {
 
     private final PropertyList properties;
@@ -14,6 +17,9 @@ public final class StructProperty extends Property {
         this.properties = properties;
     }
 
+    /**
+     * @return the value of this property
+     */
     public PropertyList getProperties() {
         return properties;
     }

@@ -4,6 +4,9 @@ import wtf.choco.rljp.ReplayStreamReader;
 
 import java.io.IOException;
 
+/**
+ * A boolean {@link Property}.
+ */
 public final class BooleanProperty extends Property {
 
     private final boolean value;
@@ -13,6 +16,9 @@ public final class BooleanProperty extends Property {
         this.value = value;
     }
 
+    /**
+     * @return the value of this property
+     */
     public boolean getValue() {
         return value;
     }

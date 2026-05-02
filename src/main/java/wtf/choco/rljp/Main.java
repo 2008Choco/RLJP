@@ -41,7 +41,7 @@ public final class Main {
 
         System.out.println("Reading replay file at " + path.toAbsolutePath() + "... Please wait...");
         long now = System.currentTimeMillis();
-        try (ReplayStreamReader reader = new ReplayStreamReader(Files.newInputStream(path, StandardOpenOption.READ))) {
+        try (ReplayStreamReader reader = new ReplayStreamReader(Files.newInputStream(path))) {
             ReplayHeader header = ReplayHeader.read(reader);
             long duration = System.currentTimeMillis() - now;
             System.out.println("Done reading replay header in " + duration + "ms. Here's the data we found:");

@@ -4,6 +4,9 @@ import wtf.choco.rljp.ReplayStreamReader;
 
 import java.io.IOException;
 
+/**
+ * An integer {@link Property}.
+ */
 public final class IntegerProperty extends Property {
 
     private final int value;
@@ -13,6 +16,9 @@ public final class IntegerProperty extends Property {
         this.value = value;
     }
 
+    /**
+     * @return the value of this property
+     */
     public int getValue() {
         return value;
     }

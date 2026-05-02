@@ -6,6 +6,11 @@ import wtf.choco.rljp.structures.uniqueid.UniqueId;
 
 import java.io.IOException;
 
+/**
+ * A UID {@link Property}.
+ *
+ * @see UniqueId
+ */
 public final class UIDProperty extends Property {
 
     private final UniqueId value;
@@ -15,6 +20,9 @@ public final class UIDProperty extends Property {
         this.value = value;
     }
 
+    /**
+     * @return the value of this property
+     */
     public UniqueId getValue() {
         return value;
     }

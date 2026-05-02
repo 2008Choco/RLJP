@@ -6,30 +6,63 @@ import wtf.choco.rljp.structures.ReplayVersionData;
 import java.io.IOException;
 import java.util.Arrays;
 
+/**
+ * Represents a unique ID for a player. Unique IDs generally come in a variety of formats and provide
+ * various bits of information for specific platforms.
+ *
+ * @see SteamUniqueId
+ * @see PS4UniqueId
+ */
 public sealed class UniqueId permits SteamUniqueId, PS4UniqueId {
 
     public static final byte[] ZERO = { 0, 0, 0 };
 
     private final UniqueIdType type;
     protected final byte[] id;
-    private final int playerIndex; // Always 0 unless in split screen mode
+    private final int playerNumber; // Always 0 unless in split screen mode
 
-    public UniqueId(UniqueIdType type, byte[] id, int playerIndex) {
+    /**
+     * Construct a new {@link UniqueId}.
+     *
+     * @param type the type of unique id being constructed
+     * @param id the unique id sequence
+     * @param playerNumber the player number, or 0 if not using split screen
+     */
+    public UniqueId(UniqueIdType type, byte[] id, int playerNumber) {
         this.type = type;
         this.id = id;
-        this.playerIndex = playerIndex;
+        this.playerNumber = playerNumber;
     }
 
+    /**
+     * Get the {@link UniqueIdType} of this UniqueId.
+     *
+     * @return the type
+     */
     public UniqueIdType getType() {
         return type;
     }
 
+    /**
+     * Get this id as an array of bytes.
+     *
+     * @return the id
+     */
     public final byte[] getId() {
         return id.clone();
     }
 
-    public int getPlayerIndex() {
-        return playerIndex;
+    /**
+     * Get the player number, which is the number of the player on a split screen (if in use).
+     * <p>
+     * Players that are using split screen have the same UniqueId. Therefore, the only additional
+     * unique identifier is a numeric value. If this UniqueId is not using split screen, then this
+     * value is 0.
+     *
+     * @return the player number, or 0 if split screen is not in use
+     */
+    public int getPlayerNumber() {
+        return playerNumber;
     }
 
     public static UniqueId read(ReplayStreamReader reader, ReplayVersionData version) throws IOException {
@@ -54,23 +87,23 @@ public sealed class UniqueId permits SteamUniqueId, PS4UniqueId {
                     throw new IOException("Id of type UNKNOWN has non-zero bytes where it was expected: " + Arrays.toString(id));
                 }
 
-                int playerIndex = reader.readUnsignedByte();
-                yield new UniqueId(UniqueIdType.UNKNOWN, id, playerIndex);
+                int playerNumber = reader.readUnsignedByte();
+                yield new UniqueId(UniqueIdType.UNKNOWN, id, playerNumber);
             }
             case XBOX -> {
                 byte[] id = reader.readUnsignedBytes(8);
-                int playerIndex = reader.readUnsignedByte();
-                yield new UniqueId(UniqueIdType.XBOX, id, playerIndex);
+                int playerNumber = reader.readUnsignedByte();
+                yield new UniqueId(UniqueIdType.XBOX, id, playerNumber);
             }
             case SWITCH -> {
                 byte[] id = reader.readUnsignedBytes(32);
-                int playerIndex = reader.readUnsignedByte();
-                yield new UniqueId(UniqueIdType.SWITCH, id, playerIndex);
+                int playerNumber = reader.readUnsignedByte();
+                yield new UniqueId(UniqueIdType.SWITCH, id, playerNumber);
             }
             case PSYNET -> {
                 byte[] id = reader.readUnsignedBytes(version.netVersion() >= 10 ? 8 : 32);
-                int playerIndex = reader.readUnsignedByte();
-                yield new UniqueId(UniqueIdType.PSYNET, id, playerIndex);
+                int playerNumber = reader.readUnsignedByte();
+                yield new UniqueId(UniqueIdType.PSYNET, id, playerNumber);
             }
             case EPIC -> {
                 // Credit to RocketLeagueReplayParser for this fuckery
@@ -83,8 +116,8 @@ public sealed class UniqueId permits SteamUniqueId, PS4UniqueId {
                     actualId[id.length + i] = (byte) reader.readUnsignedByte();
                 }
 
-                int playerIndex = reader.readUnsignedByte();
-                yield new UniqueId(UniqueIdType.EPIC, actualId, playerIndex);
+                int playerNumber = reader.readUnsignedByte();
+                yield new UniqueId(UniqueIdType.EPIC, actualId, playerNumber);
             }
         };
     }

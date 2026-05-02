@@ -1,5 +1,6 @@
 package wtf.choco.rljp.structures.properties;
 
+import org.jetbrains.annotations.Nullable;
 import wtf.choco.rljp.ReplayStreamReader;
 import wtf.choco.rljp.structures.ReplayVersionData;
 
@@ -7,6 +8,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A type of {@link Property} recognized by the Psyonix .replay file format.
+ */
 public enum PropertyType {
 
     STRING(StringProperty::read, "StrProperty", "NameProperty"), // String (UTF-16)
@@ -46,6 +50,14 @@ public enum PropertyType {
         return this.reader.read(reader, propertyData, version);
     }
 
+    /**
+     * Gets a {@link PropertyType} based on a case-sensitive property name in the .replay file format.
+     *
+     * @param identifier the unique property identifier
+     *
+     * @return the property type, or null if no property type has the given identifier
+     */
+    @Nullable
     public static PropertyType fromIdentifier(String identifier) {
         return BY_IDENTIFIER.get(identifier);
     }

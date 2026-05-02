@@ -1,24 +1,48 @@
 package wtf.choco.rljp;
 
+import wtf.choco.rljp.structures.ReplayHeader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * A wrapper for an {@link InputStream} to read data saved in the .replay file format designed by
+ * Psyonix for the Rocket League game.
+ * <p>
+ * The most common use case for this class will be to wrap an input stream for a replay file and
+ * immediately pass the instance to {@link ReplayHeader#read(ReplayStreamReader)} where it will
+ * handle the parsing using the methods defined in this class. It's unlikely you, as the library
+ * user, will need to use this class unless intending on manually parsing data from a replay file.
+ * {@snippet lang="java" :
+ * static void main() {
+ *     Path path = Path.of("path/to/replay/file.replay");
+ *     try (var reader = new ReplayStreamReader(Files.newInputStream(path))) {  // @highlight substring="new ReplayStreamReader"
+ *         ReplayHeader header = ReplayHeader.read(reader);
+ *         // Do what you want with your "header" object here!
+ *     }
+ * }
+ * }
+ * The caller is responsible for ensuring that the ReplayStreamReader is properly closed once all
+ * data has been read. Closing a ReplayStreamReader with {@link #close()} (or via its auto-closing
+ * mechanism) will also automatically close the wrapped {@link InputStream}.
+ *
+ * @see ReplayHeader#read(ReplayStreamReader)
+ */
 public final class ReplayStreamReader implements AutoCloseable {
-
-    private static final int BYTE_END = (Byte.SIZE - 1);
 
     private int currentByte;
     private int currentPosition = Byte.SIZE;
 
     private final InputStream stream;
 
+    /**
+     * Construct a new {@link ReplayStreamReader} around an {@link InputStream}.
+     *
+     * @param stream the stream from which to read data
+     */
     public ReplayStreamReader(InputStream stream) {
         this.stream = stream;
-    }
-
-    public void skip(int bytes) throws IOException {
-        this.stream.skip(bytes);
     }
 
     public boolean readBit() throws IOException {
@@ -30,18 +54,6 @@ public final class ReplayStreamReader implements AutoCloseable {
         boolean bit = (currentByte & (1 << currentPosition)) != 0;
         this.currentPosition++;
         return bit;
-    }
-
-    public int readBits(int length) throws IOException {
-        int value = 0;
-
-        for (int i = 0; i < length; i++) {
-            if (readBit()) {
-                value |= (1 << i);
-            }
-        }
-
-        return value;
     }
 
     public int readUnsignedByte() throws IOException {

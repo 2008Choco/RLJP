@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * An array {@link Property} that holds a list of objects with arbitrary properties, represented by
+ * {@link PropertyList PropertyLists}. Think of this property as a list of objects with no name.
+ */
 public final class ArrayProperty extends Property {
 
     private final List<PropertyList> properties;
@@ -16,6 +20,11 @@ public final class ArrayProperty extends Property {
         this.properties = properties;
     }
 
+    /**
+     * Get the {@link PropertyList PropertyLists} in this array.
+     *
+     * @return the list of property lists
+     */
     public List<PropertyList> getProperties() {
         return properties;
     }

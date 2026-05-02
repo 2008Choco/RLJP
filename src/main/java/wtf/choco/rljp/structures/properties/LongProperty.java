@@ -4,6 +4,9 @@ import wtf.choco.rljp.ReplayStreamReader;
 
 import java.io.IOException;
 
+/**
+ * A long {@link Property}.
+ */
 public final class LongProperty extends Property {
 
     private final long value;
@@ -13,6 +16,9 @@ public final class LongProperty extends Property {
         this.value = value;
     }
 
+    /**
+     * @return the value of this property
+     */
     public long getValue() {
         return value;
     }

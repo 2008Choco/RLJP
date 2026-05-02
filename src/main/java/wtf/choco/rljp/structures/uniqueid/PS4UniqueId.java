@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.OptionalLong;
 
+/**
+ * A {@link UniqueId} for a PSN client.
+ */
 public final class PS4UniqueId extends UniqueId {
 
     /*
@@ -22,10 +25,21 @@ public final class PS4UniqueId extends UniqueId {
     private String psnName;
     private long psnId;
 
-    public PS4UniqueId(byte[] id, int playerIndex) {
-        super(UniqueIdType.PS4, id, playerIndex);
+    /**
+     * Construct a new {@link PS4UniqueId}.
+     *
+     * @param id the unique id sequence
+     * @param playerNumber the player number, or 0 if not using split screen
+     */
+    public PS4UniqueId(byte[] id, int playerNumber) {
+        super(UniqueIdType.PS4, id, playerNumber);
     }
 
+    /**
+     * Get the name of the PSN user.
+     *
+     * @return the PSN name
+     */
     public String getPsnName() {
         if (psnName == null) {
             this.psnName = new String(id, 0, 16).replace("\0", "");
@@ -34,6 +48,11 @@ public final class PS4UniqueId extends UniqueId {
         return psnName;
     }
 
+    /**
+     * Get an {@link OptionalLong} containing the PSN ID of the user, if it exists.
+     *
+     * @return the PSN ID
+     */
     public OptionalLong getPsnId() {
         if (id.length <= 32) {
             return OptionalLong.empty();

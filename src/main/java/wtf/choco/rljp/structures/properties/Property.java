@@ -7,6 +7,14 @@ import wtf.choco.rljp.structures.ReplayVersionData;
 
 import java.io.IOException;
 
+/**
+ * Represents a property defined in the {@link PropertyList} of a .replay file header. Each property has a name,
+ * type, data length (in bytes), and its index in the array. A property can be a variety of types, such as an integer,
+ * float, string, enum, struct, UID, and so on and so forth.
+ * <p>
+ * Properties are designed to be type safe for switch expression patterns for more easy parsing, and so that primitive
+ * values can be held as their primitive values rather than being unnecessarily boxed and unboxed when needed.
+ */
 public abstract sealed class Property permits ArrayProperty, BooleanProperty, EnumProperty, FloatProperty, IntegerProperty, LongProperty, NullProperty, StringProperty, StructProperty, UIDProperty {
 
     @Nullable

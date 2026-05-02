@@ -4,6 +4,9 @@ import wtf.choco.rljp.ReplayStreamReader;
 
 import java.io.IOException;
 
+/**
+ * A float {@link Property}.
+ */
 public final class FloatProperty extends Property {
 
     private final float value;
@@ -13,6 +16,9 @@ public final class FloatProperty extends Property {
         this.value = value;
     }
 
+    /**
+     * @return the value of this property
+     */
     public float getValue() {
         return value;
     }

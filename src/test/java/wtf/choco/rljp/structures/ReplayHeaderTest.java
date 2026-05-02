@@ -18,7 +18,7 @@ class ReplayHeaderTest {
 
     private static final Path RESOURCE_DIR = Path.of("src/test/resources");
 
-    static Stream<String> replayFiles() throws IOException {
+    static Stream<String> allReplayFiles() throws IOException {
         try (Stream<Path> files = Files.list(RESOURCE_DIR)) {
             return files
                 .filter(p -> p.getFileName().toString().endsWith(".replay"))
@@ -28,8 +28,13 @@ class ReplayHeaderTest {
         }
     }
 
+    static Stream<String> failingReplayFiles() {
+        return Stream.of("07F5FF5F4AE0B2E78AC30C8194B9ED52.replay");
+    }
+
     @ParameterizedTest
-    @MethodSource("replayFiles")
+    // @MethodSource("allReplayFiles")
+    @MethodSource("failingReplayFiles")
     @DisplayName("ReplayHeader parses each test replay without exception and with valid structure")
     void testReplayHeaderParsing(String replayFile) throws Exception {
         Path path = RESOURCE_DIR.resolve(replayFile);

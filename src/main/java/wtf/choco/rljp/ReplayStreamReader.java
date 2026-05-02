@@ -114,8 +114,8 @@ public final class ReplayStreamReader implements AutoCloseable {
 
         if (length < 0) {
             // UTF-16
-            // This branch isn't actually used at all in the header, but it seems to be there in other replay parsers; so we'll keep it for now
-            byte[] bytes = readUnsignedBytes(length * 2 - 2, true);
+            length = Math.abs(length) * 2;
+            byte[] bytes = readUnsignedBytes(length - 2, false);
             if ((readUnsignedByte() | readUnsignedByte()) != 0) {
                 throw new IOException("UTF-16 string not null-terminated");
             }

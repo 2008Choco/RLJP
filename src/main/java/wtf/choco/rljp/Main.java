@@ -14,18 +14,39 @@ import wtf.choco.rljp.structures.properties.StructProperty;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public final class Main {
 
+    // Roughly documented replay format on which this parser is based. May or may not be up-to-date!
     // https://github.com/tanrbobanr/rocket-league-replay-format/blob/main/rpdoc_generated.md
 
-    private static final Path INPUT_PATH = Path.of("example.replay").toAbsolutePath();
+    static void main(String[] args) throws Exception {
+        if (args.length == 0) {
+            System.err.println("Missing required argument to path to replay file!");
+            return;
+        }
 
-    static void main() throws Exception {
+        Path path = Paths.get(args[0]);
+        if (Files.notExists(path)) {
+            System.err.println("File at path \"" + args[0] + "\" could not be located!");
+            return;
+        }
+
+        if (!path.getFileName().toString().endsWith(".replay")) {
+            System.err.println("File at path \"" + args[0] + "\" is not a .replay file!");
+            return;
+        }
+
+        System.out.println("Reading replay file at " + path.toAbsolutePath() + "... Please wait...");
         long now = System.currentTimeMillis();
-        try (ReplayStreamReader reader = new ReplayStreamReader(Files.newInputStream(INPUT_PATH, StandardOpenOption.READ))) {
+        try (ReplayStreamReader reader = new ReplayStreamReader(Files.newInputStream(path, StandardOpenOption.READ))) {
             ReplayHeader header = ReplayHeader.read(reader);
+            long duration = System.currentTimeMillis() - now;
+            System.out.println("Done reading replay header in " + duration + "ms. Here's the data we found:");
+            System.out.println();
+
             System.out.println("Header Length: " + header.headerLength());
             System.out.println("Header CRC: " + header.headerCRC());
             System.out.println("Engine Version: " + header.version().engineVersion());
@@ -48,8 +69,6 @@ public final class Main {
 
             System.out.println("Network Stream Length: " + header.networkStreamLength());
         }
-        long duration = System.currentTimeMillis() - now;
-        System.out.println("Read replay header in " + duration + "ms");
     }
 
     private static void printProperty(Property property, int nest) {

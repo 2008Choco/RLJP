@@ -8,12 +8,16 @@
     <artifactId>RLJP</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <distributionManagement>
+        <repository>
+            <id>choco-repo</id>
+            <name>Choco Repository</name>
+            <url>https://repo.choco.wtf/snapshots</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.5</version>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -22,6 +26,15 @@
                     <release>25</release>
                     <encoding>UTF-8</encoding>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.5</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.4</version>
             </plugin>
         </plugins>
     </build>
@@ -41,5 +54,4 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
 </project>

@@ -1,0 +1,436 @@
+{
+  "EngineVersion": 868,
+  "LicenseeVersion": 32,
+  "NetVersion": 10,
+  "ReplayClass": "TAGame.Replay_Soccar_TA",
+  "Properties": {
+    "ObjectTypeName": "Replay_Soccar_TA",
+    "TeamSize": 3,
+    "UnfairTeamSize": 1,
+    "PrimaryPlayerTeam": 1,
+    "Team0Score": 2,
+    "Team1Score": 1,
+    "TotalSecondsPlayed": 335.642,
+    "MatchStartEpoch": 1766884861,
+    "Goals": [
+      {
+        "frame": 3545,
+        "PlayerName": "Choco",
+        "PlayerTeam": 1
+      },
+      {
+        "frame": 3887,
+        "PlayerName": "parka",
+        "PlayerTeam": 0
+      },
+      {
+        "frame": 10515,
+        "PlayerName": "anth0",
+        "PlayerTeam": 0
+      }
+    ],
+    "Highlights": [
+      {
+        "frame": 1385,
+        "CarName": {
+          "Value": "Car_TA_143"
+        },
+        "BallName": {
+          "Value": "Ball_TA_23"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 1843,
+        "CarName": {
+          "Value": "Car_TA_142"
+        },
+        "BallName": {
+          "Value": "Ball_TA_23"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 2232,
+        "CarName": {
+          "Value": "Car_TA_138"
+        },
+        "BallName": {
+          "Value": "Ball_TA_23"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 2398,
+        "CarName": {
+          "Value": "Car_TA_138"
+        },
+        "BallName": {
+          "Value": "Ball_TA_23"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 3278,
+        "CarName": {
+          "Value": "Car_TA_141"
+        },
+        "BallName": {
+          "Value": "Ball_TA_23"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 3545,
+        "CarName": {
+          "Value": "Car_TA_138"
+        },
+        "BallName": {
+          "Value": "Ball_TA_23"
+        },
+        "GoalActorName": {
+          "Value": "GoalVolume_TA_0"
+        }
+      },
+      {
+        "frame": 3887,
+        "CarName": {
+          "Value": "Car_TA_153"
+        },
+        "BallName": {
+          "Value": "Ball_TA_23"
+        },
+        "GoalActorName": {
+          "Value": "GoalVolume_TA_4"
+        }
+      },
+      {
+        "frame": 4392,
+        "CarName": {
+          "Value": "Car_TA_166"
+        },
+        "BallName": {
+          "Value": "Ball_TA_27"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 5274,
+        "CarName": {
+          "Value": "Car_TA_166"
+        },
+        "BallName": {
+          "Value": "Ball_TA_27"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 6150,
+        "CarName": {
+          "Value": "Car_TA_166"
+        },
+        "BallName": {
+          "Value": "Ball_TA_27"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 8015,
+        "CarName": {
+          "Value": "Car_TA_162"
+        },
+        "BallName": {
+          "Value": "Ball_TA_27"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 9221,
+        "CarName": {
+          "Value": "Car_TA_168"
+        },
+        "BallName": {
+          "Value": "Ball_TA_27"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 9944,
+        "CarName": {
+          "Value": "Car_TA_173"
+        },
+        "BallName": {
+          "Value": "Ball_TA_28"
+        },
+        "GoalActorName": {
+          "Value": "None"
+        }
+      },
+      {
+        "frame": 10515,
+        "CarName": {
+          "Value": "Car_TA_172"
+        },
+        "BallName": {
+          "Value": "Ball_TA_28"
+        },
+        "GoalActorName": {
+          "Value": "GoalVolume_TA_4"
+        }
+      }
+    ],
+    "PlayerStats": [
+      {
+        "PlayerID": {
+          "Uid": 76561198098781505,
+          "NpId": {
+            "Handle": {
+              "Data": [
+                0,
+                0
+              ],
+              "Term": 0,
+              "Dummy": [
+                0,
+                0,
+                0
+              ]
+            },
+            "Opt": 0,
+            "Reserved": 0
+          },
+          "Platform": "OnlinePlatform_Steam",
+          "SplitscreenID": 0
+        },
+        "Name": "Choco",
+        "Platform": "OnlinePlatform_Steam",
+        "OnlineID": 76561198098781505,
+        "Team": 1,
+        "Score": 520,
+        "Goals": 1,
+        "Assists": 0,
+        "Saves": 3,
+        "Shots": 6,
+        "bBot": false
+      },
+      {
+        "PlayerID": {
+          "Uid": 76561198827889704,
+          "NpId": {
+            "Handle": {
+              "Data": [
+                0,
+                0
+              ],
+              "Term": 0,
+              "Dummy": [
+                0,
+                0,
+                0
+              ]
+            },
+            "Opt": 0,
+            "Reserved": 0
+          },
+          "Platform": "OnlinePlatform_Steam",
+          "SplitscreenID": 0
+        },
+        "Name": "bev",
+        "Platform": "OnlinePlatform_Steam",
+        "OnlineID": 76561198827889704,
+        "Team": 1,
+        "Score": 324,
+        "Goals": 0,
+        "Assists": 0,
+        "Saves": 2,
+        "Shots": 5,
+        "bBot": false
+      },
+      {
+        "PlayerID": {
+          "Uid": 76561198439088910,
+          "NpId": {
+            "Handle": {
+              "Data": [
+                0,
+                0
+              ],
+              "Term": 0,
+              "Dummy": [
+                0,
+                0,
+                0
+              ]
+            },
+            "Opt": 0,
+            "Reserved": 0
+          },
+          "Platform": "OnlinePlatform_Steam",
+          "SplitscreenID": 0
+        },
+        "Name": "Mai",
+        "Platform": "OnlinePlatform_Steam",
+        "OnlineID": 76561198439088910,
+        "Team": 0,
+        "Score": 302,
+        "Goals": 0,
+        "Assists": 1,
+        "Saves": 1,
+        "Shots": 1,
+        "bBot": false
+      },
+      {
+        "PlayerID": {
+          "Uid": 76561198014020877,
+          "NpId": {
+            "Handle": {
+              "Data": [
+                0,
+                0
+              ],
+              "Term": 0,
+              "Dummy": [
+                0,
+                0,
+                0
+              ]
+            },
+            "Opt": 0,
+            "Reserved": 0
+          },
+          "Platform": "OnlinePlatform_Steam",
+          "SplitscreenID": 0
+        },
+        "Name": "parka",
+        "Platform": "OnlinePlatform_Steam",
+        "OnlineID": 76561198014020877,
+        "Team": 0,
+        "Score": 597,
+        "Goals": 1,
+        "Assists": 0,
+        "Saves": 3,
+        "Shots": 6,
+        "bBot": false
+      },
+      {
+        "PlayerID": {
+          "Uid": 76561198799477030,
+          "NpId": {
+            "Handle": {
+              "Data": [
+                0,
+                0
+              ],
+              "Term": 0,
+              "Dummy": [
+                0,
+                0,
+                0
+              ]
+            },
+            "Opt": 0,
+            "Reserved": 0
+          },
+          "Platform": "OnlinePlatform_Steam",
+          "SplitscreenID": 0
+        },
+        "Name": "pado",
+        "Platform": "OnlinePlatform_Steam",
+        "OnlineID": 76561198799477030,
+        "Team": 1,
+        "Score": 265,
+        "Goals": 0,
+        "Assists": 1,
+        "Saves": 1,
+        "Shots": 2,
+        "bBot": false
+      },
+      {
+        "PlayerID": {
+          "Uid": 76561198210104867,
+          "NpId": {
+            "Handle": {
+              "Data": [
+                0,
+                0
+              ],
+              "Term": 0,
+              "Dummy": [
+                0,
+                0,
+                0
+              ]
+            },
+            "Opt": 0,
+            "Reserved": 0
+          },
+          "Platform": "OnlinePlatform_Steam",
+          "SplitscreenID": 0
+        },
+        "Name": "anth0",
+        "Platform": "OnlinePlatform_Steam",
+        "OnlineID": 76561198210104867,
+        "Team": 0,
+        "Score": 299,
+        "Goals": 1,
+        "Assists": 0,
+        "Saves": 1,
+        "Shots": 2,
+        "bBot": false
+      }
+    ],
+    "ReplayName": "Corner redirect",
+    "ReplayVersion": 8,
+    "ReplayLastSaveVersion": 8,
+    "GameVersion": 30,
+    "BuildID": -680142666,
+    "Changelist": 504897,
+    "BuildVersion": "251202.62834.504897",
+    "ReserveMegabytes": 4,
+    "RecordFPS": 30.0,
+    "KeyframeDelay": 10.0,
+    "MaxChannels": 2047,
+    "MaxReplaySizeMB": 10,
+    "Id": "A97BECAF43BD6404A376B5A1C6AC72B0",
+    "MatchGuid": "7881FAFE11F0E38BE286718624E68ECC",
+    "MapName": {
+      "Value": "Stadium_P"
+    },
+    "Date": "2025-12-27 20-28-22",
+    "NumFrames": 10602,
+    "MatchType": {
+      "Value": "Private"
+    },
+    "PlayerName": "Choco"
+  },
+  "Levels": [],
+  "KeyFrames": [],
+  "Frames": [],
+  "DebugStrings": [],
+  "Tickmarks": [],
+  "Packages": [],
+  "Objects": [],
+  "Names": [],
+  "ClassIndexes": {},
+  "ClassNetCaches": []
+}

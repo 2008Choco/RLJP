@@ -17,6 +17,11 @@ public final class LongProperty extends Property {
         return value;
     }
 
+    @Override
+    protected String stringifyData() {
+        return "value=" + value;
+    }
+
     public static Property read(ReplayStreamReader reader, CommonPropertyData propertyData) throws IOException {
         return new LongProperty(propertyData, reader.readUnsignedLong());
     }

@@ -17,6 +17,11 @@ public final class StringProperty extends Property {
         return value;
     }
 
+    @Override
+    protected String stringifyData() {
+        return "value=\"" + value + "\"";
+    }
+
     public static Property read(ReplayStreamReader reader, CommonPropertyData propertyData) throws IOException {
         return new StringProperty(propertyData, reader.readString());
     }

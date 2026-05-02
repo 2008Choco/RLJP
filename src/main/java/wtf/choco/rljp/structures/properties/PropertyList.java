@@ -39,6 +39,12 @@ public record PropertyList(List<Property> properties) implements Iterable<Proper
 
     @NotNull
     @Override
+    public String toString() {
+        return "PropertyList{" + properties + "}";
+    }
+
+    @NotNull
+    @Override
     public Iterator<Property> iterator() {
         return properties.iterator();
     }

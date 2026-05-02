@@ -26,6 +26,11 @@ public final class EnumProperty extends Property {
         return enumValueName;
     }
 
+    @Override
+    protected String stringifyData() {
+        return "enumTypeName=" + enumTypeName + ", enumValueName=" + enumValueName;
+    }
+
     public static Property read(ReplayStreamReader reader, CommonPropertyData propertyData) throws IOException {
         String enumTypeName = reader.readString();
 

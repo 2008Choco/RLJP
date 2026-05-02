@@ -19,6 +19,11 @@ public final class UIDProperty extends Property {
         return value;
     }
 
+    @Override
+    protected String stringifyData() {
+        return "value=" + value;
+    }
+
     public static Property read(ReplayStreamReader reader, CommonPropertyData propertyData, ReplayVersionData version) throws IOException {
         return new UIDProperty(propertyData, UniqueId.read(reader, version));
     }

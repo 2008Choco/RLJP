@@ -17,6 +17,11 @@ public final class FloatProperty extends Property {
         return value;
     }
 
+    @Override
+    protected String stringifyData() {
+        return "value=" + value;
+    }
+
     public static Property read(ReplayStreamReader reader, CommonPropertyData propertyData) throws IOException {
         return new FloatProperty(propertyData, reader.readFloat());
     }

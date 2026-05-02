@@ -1,5 +1,6 @@
 package wtf.choco.rljp.structures.properties;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import wtf.choco.rljp.ReplayStreamReader;
 import wtf.choco.rljp.structures.ReplayVersionData;
@@ -42,7 +43,25 @@ public abstract sealed class Property permits ArrayProperty, BooleanProperty, En
         return arrayIndex;
     }
 
-    @Nullable
+    protected abstract String stringifyData();
+
+    @NotNull
+    @Override
+    public String toString() {
+        String string = getClass().getSimpleName() + "{" +
+            "name='" + name + '\'' +
+            ", type=" + type +
+            ", dataLength=" + dataLength +
+            ", arrayIndex=" + arrayIndex;
+
+        String data = stringifyData();
+        if (!data.isBlank()) {
+            string += ", " + data;
+        }
+
+        return string + "}";
+    }
+
     public static Property read(ReplayStreamReader reader, ReplayVersionData version) throws IOException {
         String name = reader.readString();
         if (PropertyType.fromIdentifier(name) == PropertyType.NULL) {

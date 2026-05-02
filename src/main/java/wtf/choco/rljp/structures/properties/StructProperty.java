@@ -18,6 +18,11 @@ public final class StructProperty extends Property {
         return properties;
     }
 
+    @Override
+    protected String stringifyData() {
+        return "properties=" + properties;
+    }
+
     public static Property read(ReplayStreamReader reader, CommonPropertyData propertyData, ReplayVersionData version) throws IOException {
         String structName = reader.readString(); // I think this is the name of the struct being saved. We can ignore it. Serves no purpose for us
         PropertyList properties = PropertyList.read(reader, version);

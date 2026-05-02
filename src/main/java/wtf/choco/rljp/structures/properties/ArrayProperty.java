@@ -20,6 +20,11 @@ public final class ArrayProperty extends Property {
         return properties;
     }
 
+    @Override
+    protected String stringifyData() {
+        return "properties={" + properties + "}";
+    }
+
     public static Property read(ReplayStreamReader reader, CommonPropertyData propertyData, ReplayVersionData version) throws IOException {
         int size = reader.readUnsignedInt();
         List<PropertyList> propertiesList = new ArrayList<>(size);
